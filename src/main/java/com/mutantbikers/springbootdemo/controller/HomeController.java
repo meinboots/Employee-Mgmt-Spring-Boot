@@ -4,7 +4,7 @@ import com.mutantbikers.springbootdemo.model.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class homeController {
+public class HomeController {
 
     @RequestMapping("/")
     public String greeting(){
