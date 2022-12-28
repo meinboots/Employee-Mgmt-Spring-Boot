@@ -1,10 +1,13 @@
-package com.mutantbikers.springbootdemo.model;
+package com.mutantbikers.springbootdemo.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-//@JsonIgnoreProperties({"department", " we can more here at same time"}) -> It will remove below filed to be processed same as -> @JsonIgnore
-public class Employee {
+@Entity
+@Table(name = "tbl_employee")
+public class EmployeeEntity {
+    @Id
     private String employeeId;
     private String firstName;
     private String lastName;

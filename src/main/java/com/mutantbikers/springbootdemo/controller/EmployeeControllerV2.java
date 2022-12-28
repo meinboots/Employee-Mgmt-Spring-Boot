@@ -9,20 +9,22 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("v1/employee") //Base path -> Mapping on class level
-public class EmployeeController {
+@RequestMapping("v2/employee") //Base path -> Mapping on class level
+public class EmployeeControllerV2 {
 
-    @Qualifier("employeeServiceImpl")
+    @Qualifier("employeeServiceV2Impl")
     @Autowired
     private EmployeeService employeeService;
+
 
     //Save employee
     @PostMapping
     public Employee save(@RequestBody Employee employee){
-        return employeeService.save(employee);
+        employeeService.save(employee);
+        return employee;
     }
 
-    //Get employee
+    //Get all employees
     @GetMapping
     public List<Employee> getAllEmployees(){
         return employeeService.getAllEmployees();
@@ -39,4 +41,6 @@ public class EmployeeController {
     public String deleteEmployeeById(@PathVariable String id){
         return employeeService.deleteEmployeeById(id);
     }
+
+
 }
